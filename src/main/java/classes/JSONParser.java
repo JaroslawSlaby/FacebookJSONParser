@@ -26,7 +26,7 @@ public class JSONParser {
         profiles = new ArrayList<Profile>();
         try {
             for (int i = 1; i < 6; i++)
-                profiles.add(gson.fromJson(new FileReader(this.location + "/f" + i + ".json"), Profile.class));
+                profiles.add(gson.fromJson(new FileReader(this.location + "data/f" + i + ".json"), Profile.class));
         }
         catch (FileNotFoundException e) {
             System.out.println("File not found!");
