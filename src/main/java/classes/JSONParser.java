@@ -16,7 +16,7 @@ import java.util.List;
 public class JSONParser {
 
     private Gson gson = new Gson();
-    private List<Facebook> profiles = new ArrayList<Facebook>();
+    private List<Facebook> profiles = new ArrayList<>();
     private String location;
 
     public JSONParser(String location) {
@@ -40,16 +40,16 @@ public class JSONParser {
         File dir = new File(location + "/data");
         File[] files = dir.listFiles();
         int z = 0;
-
-        for(File file : files) {
-            if(isJSONFile(file.getName()))
-                z++;
-        }
+        if(files != null)
+            for(File file : files) {
+                if(isJSONFile(file.getName()))
+                    z++;
+            }
         return z;
     }
 
     List<Facebook> getProfilesList() {
-        profiles = new ArrayList<Facebook>();
+        profiles = new ArrayList<>();
         for (int i = 1; i <= filesNumber(); i++) {
             try {
                 loadProfile(i);
