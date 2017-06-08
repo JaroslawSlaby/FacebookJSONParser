@@ -1,0 +1,8 @@
+{
+	"id" : "1",
+	"firstname" : "Jarek"
+	"city" : {
+		"name" : "Poland"
+		"woj" : "ML"
+	}
+}
