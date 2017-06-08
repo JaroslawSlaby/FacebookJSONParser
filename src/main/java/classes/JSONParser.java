@@ -24,19 +24,15 @@ public class JSONParser {
     }
 
     public boolean isJSONFile(String name) {
-
         String ext = "";
         int i = name.lastIndexOf('.');
         if (i >= 0) {
             ext = name.substring(i+1);
         }
-            if(ext.equals("json"))
-                return true;
-        return false;
+        return ext.equals("json");
     }
 
     public int filesNumber() {
-
         File dir = new File(location + "/data");
         File[] files = dir.listFiles();
         int z = 0;

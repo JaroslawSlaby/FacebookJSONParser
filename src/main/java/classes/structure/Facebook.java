@@ -128,10 +128,9 @@ public class Facebook implements Comparable<Facebook> {
     @Override
     public int compareTo(Facebook o) {
         int last = this.firstname.compareTo(o.firstname);
-
-        if(last == 0) {
-            return this.lastname.compareTo(o.lastname);
-        }
-        return last == 0 ? this.firstname.compareTo(o.firstname) : last;
+            if(last == 0) {
+                return this.lastname.compareTo(o.lastname);
+            }
+        return last;
     }
 }

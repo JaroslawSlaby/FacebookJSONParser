@@ -21,7 +21,7 @@ public class Main {
 
         Operations operations = new Operations(jsonParser);
         try {
-            testProfile = operations.findById("3");
+            testProfile = operations.findById("6");
         } catch (NotFoundException e) {
             e.printStackTrace();
         }

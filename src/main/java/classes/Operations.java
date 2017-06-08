@@ -18,13 +18,10 @@ public class Operations implements FacebookService {
     }
 
     public Facebook findById(String id) throws NotFoundException {
-
         int l, p, s;
         List<Facebook> profiles = jsonParser.getProfilesList();
-
         l = 0;
         p = profiles.size() - 1;
-
         while (l <= p) {
             s = (l + p) / 2;
             if (profiles.get(s).getId().compareTo(id) == 0) {
@@ -36,10 +33,8 @@ public class Operations implements FacebookService {
             } else
                 p = s - 1;
         }
-
         System.out.println("Cannot find: " + id);
         return null;
-
     }
 
     public Map<String, Long> findMostCommonWords() {
