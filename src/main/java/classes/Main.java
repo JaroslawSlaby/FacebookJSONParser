@@ -1,6 +1,7 @@
 package classes;
 
-import classes.structure.Profile;
+import classes.exceptions.NotFoundException;
+import classes.structure.Facebook;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,9 +11,19 @@ import java.util.List;
  */
 public class Main {
     public static void main(String[] args) {
+
         JSONParser jsonParser = new JSONParser(".");
-        List<Profile> profiles = new ArrayList<Profile>();
+        List<Facebook> profiles = new ArrayList<>();
+        Facebook testProfile = new Facebook();
         profiles.addAll(jsonParser.getProfilesList());
-        System.out.print(profiles.get(0).getPosts().get(0).getMessage());
+        System.out.println(profiles.get(0).getId());
+
+        Operations operations = new Operations(jsonParser);
+        try {
+            testProfile = operations.findById("3");
+        } catch (NotFoundException e) {
+            e.printStackTrace();
+        }
+        System.out.print(testProfile.getFirstName());
     }
 }

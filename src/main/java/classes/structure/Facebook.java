@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by jaroslaw on 07.06.17.
  */
-public class Profile {
+public class Facebook {
 
     private String id;
     private long birthday;

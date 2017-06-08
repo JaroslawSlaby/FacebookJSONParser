@@ -1,6 +1,6 @@
 package classes;
 
-import classes.structure.Profile;
+import classes.structure.Facebook;
 import com.google.gson.Gson;
 
 import java.io.File;
@@ -12,11 +12,11 @@ import java.util.List;
 /**
  * Created by jaroslaw on 08.06.17.
  */
-@SuppressWarnings("ALL")
+
 public class JSONParser {
 
     private Gson gson = new Gson();
-    private List<Profile> profiles = new ArrayList<Profile>();
+    private List<Facebook> profiles = new ArrayList<Facebook>();
     private String location;
 
     public JSONParser(String location) {
@@ -48,8 +48,8 @@ public class JSONParser {
         return z;
     }
 
-    List<Profile> getProfilesList() {
-        profiles = new ArrayList<Profile>();
+    List<Facebook> getProfilesList() {
+        profiles = new ArrayList<Facebook>();
         for (int i = 1; i <= filesNumber(); i++) {
             try {
                 loadProfile(i);
@@ -62,14 +62,15 @@ public class JSONParser {
     }
 
     public void loadProfile(int i) throws FileNotFoundException{
-        profiles.add(gson.fromJson(new FileReader(this.location + "/data/f" + i + ".json"), Profile.class));
+        profiles.add(gson.fromJson(new FileReader(this.location + "/data/f" + i + ".json"), Facebook.class));
     }
 
-    public void setProfiles(List<Profile> profiles) {
+    public void setProfiles(List<Facebook> profiles) {
         this.profiles = profiles;
     }
 
-    public List<Profile> getProfiles() {
+    public List<Facebook> getProfiles() {
         return profiles;
     }
+
 }
