@@ -13,5 +13,5 @@ public interface FacebookService {
     Facebook findById(String id) throws NotFoundException;
     Map<String, Long> findMostCommonWords();
     Set<String> findPostIdsByKeyword(String word);
-    Set<Operations> findAll();
+    Set<Facebook> findAll();
 }

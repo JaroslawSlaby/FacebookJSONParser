@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by jaroslaw on 07.06.17.
  */
-public class Facebook {
+public class Facebook implements Comparable<Facebook> {
 
     private String id;
     private long birthday;
@@ -123,5 +123,15 @@ public class Facebook {
 
     public void setPosts(List<Post> posts) {
         this.posts = posts;
+    }
+
+    @Override
+    public int compareTo(Facebook o) {
+        int last = this.firstname.compareTo(o.firstname);
+
+        if(last == 0) {
+            return this.lastname.compareTo(o.lastname);
+        }
+        return last == 0 ? this.firstname.compareTo(o.firstname) : last;
     }
 }

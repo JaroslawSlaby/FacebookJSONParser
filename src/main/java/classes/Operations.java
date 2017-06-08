@@ -50,7 +50,8 @@ public class Operations implements FacebookService {
         return null;
     }
 
-    public Set<Operations> findAll() {
-        return null;
+    public Set<Facebook> findAll() {
+        Set profileSet = new TreeSet(jsonParser.getProfiles());
+        return profileSet;
     }
 }

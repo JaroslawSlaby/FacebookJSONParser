@@ -5,6 +5,7 @@ import classes.structure.Facebook;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by jaroslaw on 07.06.17.
@@ -24,6 +25,10 @@ public class Main {
         } catch (NotFoundException e) {
             e.printStackTrace();
         }
-        System.out.print(testProfile.getFirstName());
+        Set<Facebook> facebookSet = operations.findAll();
+
+        for (Facebook profile: facebookSet) {
+            System.out.println(profile.getFirstName() + " " + profile.getLastName());
+        }
     }
 }
