@@ -24,4 +24,10 @@ public class JSONParserTest {
         jsonParser.loadProfile(1);
         Assert.assertEquals(1, jsonParser.getProfiles().size());
     }
+
+    @Test
+    public void isJSONFileTest() {
+        Assert.assertEquals(true, jsonParser.isJSONFile("jarek.json"));
+        Assert.assertEquals(false, jsonParser.isJSONFile("jarek.txt"));
+    }
 }
