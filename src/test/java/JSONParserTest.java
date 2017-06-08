@@ -26,6 +26,11 @@ public class JSONParserTest {
     }
 
     @Test
+    public void filesNumberTest() {
+        Assert.assertEquals(5, jsonParser.filesNumber());
+    }
+
+    @Test
     public void isJSONFileTest() {
         Assert.assertEquals(true, jsonParser.isJSONFile("jarek.json"));
         Assert.assertEquals(false, jsonParser.isJSONFile("jarek.txt"));

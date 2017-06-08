@@ -6,13 +6,8 @@ import com.google.gson.Gson;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-
-import static java.nio.file.Files.list;
 
 /**
  * Created by jaroslaw on 08.06.17.
@@ -40,7 +35,7 @@ public class JSONParser {
         return false;
     }
 
-    private int filesNumber() {
+    public int filesNumber() {
 
         File dir = new File(location + "/data");
         File[] files = dir.listFiles();
