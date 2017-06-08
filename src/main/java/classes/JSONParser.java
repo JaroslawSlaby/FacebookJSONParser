@@ -14,26 +14,36 @@ import java.util.List;
 public class JSONParser {
 
     private Gson gson = new Gson();
-    private List<Profile> profiles;
+    private List<Profile> profiles = new ArrayList<Profile>();
     private String location;
 
-    JSONParser(String location) {
+    public JSONParser(String location) {
         this.location = location;
     }
 
-    List<Profile> getProfiles() {
+    List<Profile> getProfilesList() {
 
         profiles = new ArrayList<Profile>();
-        try {
-            for (int i = 1; i < 6; i++)
-                profiles.add(gson.fromJson(new FileReader(this.location + "/data/f" + i + ".json"), Profile.class));
+        for (int i = 1; i < 6; i++) {
+            try {
+                loadProfile(i);
+            } catch (FileNotFoundException e) {
+                System.out.println("File not found!");
+                e.printStackTrace();
+            }
         }
-        catch (FileNotFoundException e) {
-            System.out.println("File not found!");
-            e.printStackTrace();
-        }
-
         return profiles;
     }
 
+    public void loadProfile(int i) throws FileNotFoundException{
+        profiles.add(gson.fromJson(new FileReader(this.location + "/data/f" + i + ".json"), Profile.class));
+    }
+
+    public void setProfiles(List<Profile> profiles) {
+        this.profiles = profiles;
+    }
+
+    public List<Profile> getProfiles() {
+        return profiles;
+    }
 }
