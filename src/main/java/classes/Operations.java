@@ -20,11 +20,9 @@ public class Operations implements FacebookService {
     public Facebook findById(String id) throws NotFoundException {
         int l, p, s;
         List<Facebook> profiles = jsonParser.getProfilesList();
-
         if(Integer.parseInt(id) > jsonParser.getProfilesList().size()) {
             throw new NotFoundException("not find");
         }
-
         l = 0;
         p = profiles.size() - 1;
         while (l <= p) {
