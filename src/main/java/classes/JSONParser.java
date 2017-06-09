@@ -18,7 +18,6 @@ public class JSONParser {
     private Gson gson = new Gson();
     private List<Facebook> profiles = new ArrayList<>();
     private String location;
-    private List<String> allPosts;
 
     public JSONParser(String location) {
         this.location = location;
