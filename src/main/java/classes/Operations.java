@@ -42,7 +42,16 @@ public class Operations implements FacebookService {
     }
 
     public Set<String> findPostIdsByKeyword(String word) {
-        return null;
+
+        Set<String> idKeywords = new TreeSet<>();
+        for(Facebook profile :  jsonParser.getProfilesList()) {
+            for (int i = 0; i < profile.getPosts().size(); i++) {
+               if(profile.getPosts().get(i).getMessage().toLowerCase().contains(word.toLowerCase())) {
+                   idKeywords.add(profile.getPosts().get(i).getId());
+               }
+            }
+        }
+        return idKeywords;
     }
 
     public Set<Facebook> findAll() {

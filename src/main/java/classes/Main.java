@@ -17,18 +17,24 @@ public class Main {
         List<Facebook> profiles = new ArrayList<>();
         Facebook testProfile = new Facebook();
         profiles.addAll(jsonParser.getProfilesList());
-        System.out.println(profiles.get(0).getId());
 
+        System.out.println(profiles.get(0).getId());
+        System.out.println(profiles.get(0).getPosts().get(1).getMessage());
         Operations operations = new Operations(jsonParser);
-        try {
+        /*try {
             testProfile = operations.findById("6");
         } catch (NotFoundException e) {
             e.printStackTrace();
-        }
+        }*/
         Set<Facebook> facebookSet = operations.findAll();
 
-        for (Facebook profile: facebookSet) {
+        /*for (Facebook profile: facebookSet) {
             System.out.println(profile.getFirstName() + " " + profile.getLastName());
+        }*/
+        Set<String> wordID = operations.findPostIdsByKeyword("TV");
+        for (String id: wordID ) {
+            System.out.println(id);
+
         }
     }
 }
