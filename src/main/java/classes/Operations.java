@@ -38,7 +38,21 @@ public class Operations implements FacebookService {
     }
 
     public Map<String, Long> findMostCommonWords() {
-        return null;
+
+        Map<String, Long> map = new HashMap<>();
+        for (Facebook profile : jsonParser.getProfilesList()) {
+            for(int i = 0; i < profile.getPosts().size(); i++) {
+                String[] temp = profile.getPosts().get(i).getMessage().toLowerCase().replaceAll("/", " ").replaceAll("-", " ").split("\\s+");
+                for (int j = 0; j < temp.length; j++) {
+                    temp[j] = temp[j].replaceAll("[^\\w]", "");
+                    Long n = map.get(temp[j]);
+                    n = (n == null) ? 1 : ++n;
+                    map.put(temp[j], n);
+                }
+            }
+        }
+        map.remove(map.keySet().iterator().next());
+        return map;
     }
 
     public Set<String> findPostIdsByKeyword(String word) {
